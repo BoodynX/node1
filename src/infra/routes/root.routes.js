@@ -1,8 +1,10 @@
-const router = require("./router")()
+const router = require("./services/router")()
 
 router.get('/', async (req, res) => {
 
     return res.send({message: 'Hello Response'})
 })
 
-module.exports = router
+module.exports = {
+    root: router
+}

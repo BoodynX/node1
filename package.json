@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "test": "env-cmd -f ./envs/test.env jest",
-    "testWatch": "env-cmd -f ./enves/test.env jest --watch"
+    "testWatch": "env-cmd -f ./envs/test.env jest --watch"
   },
   "jest": {
     "testEnvironment": "node"

@@ -1,0 +1,1 @@
+const { odm } = require('./service/odm')
