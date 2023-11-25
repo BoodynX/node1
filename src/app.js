@@ -1,6 +1,6 @@
-const express = require('express')
-const { root } = require('./infra/routes/root.routes')
-const { user } = require('./infra/routes/user.routes')
+import express, { json } from 'express'
+import { root } from './infra/routes/root.routes'
+import { user } from './infra/routes/user.routes'
 
 
 const app = express()
@@ -8,10 +8,10 @@ const app = express()
 // EXPRESS CONFIG
 
 // auto parsing json body requests to objects
-app.use(express.json())
+app.use(json())
 
 // Adding Routes
 app.use(root)
 app.use(user)
 
-module.exports = app
+export default app

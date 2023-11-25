@@ -1,7 +1,7 @@
-const express = require('express')
+import express from 'express'
 
 function getRouter() {
     return express.Router()
 }
 
-module.exports = getRouter
+export default getRouter
