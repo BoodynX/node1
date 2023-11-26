@@ -1,23 +1,16 @@
-import { MongoClient } from "mongodb";
+import Repo from "./abs/repo";
 
-class UserRepo {
-
-    collection(name) {
-        this.client = new MongoClient(process.env.MONGODB_URL)
-        return this.client.db(process.env.MONGODB_DB).collection(name)
+class UserRepo extends Repo {
+  async save(user) {
+    try {
+      const users = this.collection("users");
+      await users.insertOne(user);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      await this.client.close();
     }
-
-    async save(user) {
-        try {
-            const users = this.collection('users');
-            await users.insertOne(user)
-          } catch (e) {
-            console.log(e);
-          } finally {
-            await this.client.close();
-          }
-    }
+  }
 }
 
-
-export default UserRepo
+export default UserRepo;

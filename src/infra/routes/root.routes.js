@@ -1,10 +1,9 @@
-import getRouter from './services/router'
+import getRouter from "./services/router";
 
-const router = getRouter()
+const router = getRouter();
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
+  return res.send({ message: "Hello Response" });
+});
 
-    return res.send({message: 'Hello Response'})
-})
-
-export const root = router
+export const root = router;

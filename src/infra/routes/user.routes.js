@@ -1,18 +1,18 @@
-import getRouter from './services/router'
-import UserRepo from '../repos/users.repo';
+import getRouter from "./services/router";
+import UserRepo from "../repos/users.repo";
 
-const router = getRouter()
+const router = getRouter();
 
-router.post('/users', async (req, res) => {
-    const user = new UserRepo()
+router.post("/users", async (req, res) => {
+  const user = new UserRepo();
 
-    try {
-        await user.save(req.body)
-        res.status(201).send()
-    } catch (e) {
-        res.status(400).send(e)
-    }
-})
+  try {
+    await user.save(req.body);
+    res.status(201).send();
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
 
 // router.post('/users/login', async (req, res) => {
 //     try {
