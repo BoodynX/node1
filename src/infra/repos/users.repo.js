@@ -5,9 +5,15 @@ class UserRepo extends Repo {
         try {
             const users = this.collection('users')
             await users.insertOne(user)
+
+            return { result: true }
         } catch (e) {
-            console.log(e)
+            if (e.code == 11000) {
+                return { result: true, msg: 'Email already exists' }
+            }
+            throw e
         } finally {
+            console.log('finally UserRepo!')
             await this.client.close()
         }
     }

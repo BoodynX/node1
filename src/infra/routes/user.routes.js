@@ -9,8 +9,10 @@ router.post('/users', async (req, res) => {
     try {
         await user.save(req.body)
         res.status(201).send()
+        // TODO handle existing email
     } catch (e) {
-        res.status(400).send(e)
+        console.log(e)
+        res.status(400).send()
     }
 })
 
