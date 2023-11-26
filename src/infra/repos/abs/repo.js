@@ -1,10 +1,10 @@
-import { MongoClient } from "mongodb";
+import { MongoClient } from 'mongodb'
 
 class Repo {
-  collection(name) {
-    this.client = new MongoClient(process.env.MONGODB_URL);
-    return this.client.db(process.env.MONGODB_DB).collection(name);
-  }
+    collection(name) {
+        this.client = new MongoClient(process.env.MONGODB_URL)
+        return this.client.db(process.env.MONGODB_DB).collection(name)
+    }
 }
 
-export default Repo;
+export default Repo
